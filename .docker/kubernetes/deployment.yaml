@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-minikube-minilearn
+spec:
+  selector:
+    matchLabels:
+      app: ms-minikube-minilearn
+  template:
+    metadata:
+      labels:
+        app: ms-minikube-minilearn
+    spec:
+      containers:
+      - name: ms-minikube-minilearn
+        image: drc288/minikube-minilab:0.0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "128m"
+        ports:
+        - containerPort: 8080
